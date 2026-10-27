@@ -16,7 +16,7 @@ module program_counter (
             3'b100: pc_n = target;
             3'b101: begin
                 if (zero_flag)
-                    pc_n = target;
+                    pc_n = target; //jump and branch instruction spotted
             end
             3'b111: pc_n = pc;
             default: pc_n = pc + 3'd1;
@@ -27,7 +27,7 @@ module program_counter (
         if (!rst_n)
             pc <= 3'd0;
         else if (exec)
-            pc <= pc_n;
+            pc <= pc_n; //move on to next only if execute permits 
     end
 
 endmodule
