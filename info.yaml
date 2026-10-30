@@ -12,7 +12,7 @@ project:
   top_module: "tt_um_example"
 
   source_files:
-    - "tcpu_wrapper.v"
+    - "tt_um_example.v"
     - "toy_cpu.v"
     - "program_loader.v"
     - "program_memory.v"

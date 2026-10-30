@@ -1,5 +1,4 @@
-module decode_unit(
-	input wire clk,
+module decoding_unit(
 	input wire [7:0] instr,
 	output wire [2:0] op, //to be fed into the ALU
 	output wire [4:0] imm,

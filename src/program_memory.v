@@ -17,3 +17,4 @@ reg [7:0] mem [0:7]; // a clean 8-bit 8 word register!
 
 assign instr = mem[pc];	
 endmodule
+

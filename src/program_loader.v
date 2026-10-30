@@ -12,7 +12,7 @@ module program_loader (
 	assign load_pulse = prog_load & ~pl_q & !run; //refer to table 4.2 
 
 	always @(posedge clk) begin
-		pl_q <= prog_load; //just states the previous value of prog load
+		pl_q <= rst_n ? prog_load : 1'b0; //just states the previous value of prog load
 		if (!rst_n) //remember the reset is active-low !!
 			load_addr <= 3'b0;
 		else if (load_pulse) begin
@@ -20,3 +20,4 @@ module program_loader (
 		end
 	end
 endmodule
+

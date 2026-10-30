@@ -44,8 +44,7 @@ module toy_cpu (
         .instr(instr)
     );
 
-    decode_unit u_decode (
-        .clk(clk),
+    decoding_unit u_decode (
         .instr(instr),
         .op(op),
         .imm(imm),
@@ -55,7 +54,7 @@ module toy_cpu (
 
     alu u_alu (
         .op(op),
-        .imm(imm),
+        .imm({3'b000,imm}),
         .acc(acc),
         .alu_out(alu_out)
     );
@@ -93,5 +92,6 @@ module toy_cpu (
     end
 
     assign out_data = out_r;
+    wire _unused = &{halted, ir, 1'b0}; 
 
 endmodule
