@@ -24,6 +24,8 @@ module toy_cpu (
     wire zero_flag;
     wire exec;
 
+    assign zero_flag = (acc == 8'h00);
+
     program_loader u_loader (
         .clk(clk),
         .rst_n(rst_n),
@@ -55,8 +57,7 @@ module toy_cpu (
         .op(op),
         .imm(imm),
         .acc(acc),
-        .alu_out(alu_out),
-        .zero_flag(zero_flag)
+        .alu_out(alu_out)
     );
 
     execution_unit u_exec (
@@ -86,7 +87,7 @@ module toy_cpu (
         end else if (exec) begin
             ir <= instr;
             acc <= alu_out;
-            if (op == 3'b011 || op == 3'b110)
+            if (op == 3'b011)
                 out_r <= acc;
         end
     end

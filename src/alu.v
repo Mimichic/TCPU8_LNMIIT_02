@@ -9,7 +9,8 @@ module alu(
         case (op)
             3'b000:  alu_out = imm;        // load instruction
             3'b001:  alu_out = acc + imm; 
-            3'b010:  alu_out = acc - imm; 
+            3'b010:  alu_out = acc - imm;
+	    3'b110:  alu_out = acc ^ imm; // added XOR instruction 
             default: alu_out = acc;        
         endcase
     end

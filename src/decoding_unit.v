@@ -10,5 +10,5 @@ module decode_unit(
 	assign op = instr[7:5];
 	assign imm = instr[4:0];
 	assign target = instr[2:0];
-	assign HALT = (opcode == 3'b111);
+	assign HALT = (op == 3'b111);
 endmodule

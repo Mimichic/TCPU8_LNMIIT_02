@@ -19,7 +19,7 @@ module tt_um_example (
   // All output pins must be assigned. If not used, assign to 0.
   wire [7:0] acc_out;
 
-  toy_cpu16 cpu (
+  toy_cpu cpu (
       .clk(clk),
       .rst_n(rst_n),
       .prog_data(ui_in),
