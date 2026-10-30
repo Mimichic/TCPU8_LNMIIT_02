@@ -17,7 +17,18 @@ module tt_um_example (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
+  wire [7:0] acc_out;
+
+  toy_cpu16 cpu (
+      .clk(clk),
+      .rst_n(rst_n),
+      .prog_data(ui_in),
+      .prog_load(uio_in[0]),
+      .run(uio_in[1]),
+      .out_data(acc_out)
+  );
+
+  assign uo_out  = acc_out;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
   assign uio_oe  = 0;
 
